@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -18,7 +19,24 @@ namespace sampleaspcrudn1
             if (!IsPostBack)
             {
                 InitializeUserTable();
-                BindGridView();
+                DataTable dataTable = new DataTable();
+                string connectionString = System.Configuration.ConfigurationManager.ConnectionStrings["MyConnectionString"].ConnectionString;
+
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    SqlCommand command = new SqlCommand("SP_Person", connection);
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.AddWithValue("@if", 3);
+
+                    SqlDataAdapter dataAdapter = new SqlDataAdapter(command);
+
+                    connection.Open();
+                    dataAdapter.Fill(dataTable);
+                }
+
+                GridUser.DataSource = dataTable;
+                GridUser.DataBind();
+                //BindGridView();
             }
         }
 

@@ -88,7 +88,7 @@
 
           <asp:TemplateField HeaderText="Sno" Visible="false">
                   <ItemTemplate>
-                      <asp:Label ID="lblSno" runat="server" Text='<%# Eval("Id") %>'></asp:Label>
+                      <asp:Label ID="lblSno" runat="server" Text='<%# Eval("Sno") %>'></asp:Label>
                   </ItemTemplate>
               </asp:TemplateField>
 
@@ -98,11 +98,11 @@
                   </ItemTemplate>
               </asp:TemplateField>
 
-          <asp:TemplateField HeaderText="DOB">
+<%--          <asp:TemplateField HeaderText="DOB">
                   <ItemTemplate>
                       <asp:Label ID="lblDOB" runat="server" Text='<%# Eval("DOB") %>' ></asp:Label>
                   </ItemTemplate>
-          </asp:TemplateField>
+          </asp:TemplateField>--%>
 
           <asp:TemplateField HeaderText="Email">
               <ItemTemplate>
@@ -128,19 +128,19 @@
               </ItemTemplate>
           </asp:TemplateField>
 
-          <asp:TemplateField HeaderText="Experience">
+<%--          <asp:TemplateField HeaderText="Experience">
               <ItemTemplate>
                   <asp:Label ID="lblExperience" runat="server" Text='<%# Eval("Experience") %>'></asp:Label>
               </ItemTemplate>
-          </asp:TemplateField>
+          </asp:TemplateField>--%>
 
           <asp:TemplateField HeaderText="Action">
                 <ItemTemplate>
                     <div class="text-center">
-                        <asp:LinkButton ID="lbEdit" runat="server"   CausesValidation="false" CssClass="btn-small btn-primary" OnClick="lbEdit_Click" CommandName='<%# Eval("Id") %>'>
+                        <asp:LinkButton ID="lbEdit" runat="server"   CausesValidation="false" CssClass="btn-small btn-primary" OnClick="lbEdit_Click" CommandName='<%# Eval("Sno") %>'>
                             Edit
                         </asp:LinkButton>&nbsp;
-                        <asp:LinkButton ID="lbRemove" runat="server" CausesValidation="false" CssClass="btn-small btn-danger" OnClick="lbRemove_Click" CommandName='<%# Eval("Id") %>'>
+                        <asp:LinkButton ID="lbRemove" runat="server" CausesValidation="false" CssClass="btn-small btn-danger" OnClick="lbRemove_Click" CommandName='<%# Eval("Sno") %>'>
                             Delete
                         </asp:LinkButton>
                     </div>
